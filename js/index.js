@@ -4,10 +4,7 @@ const resetButton = document.getElementById("resetButton");
 const testButton = document.getElementById("testButton");
 const retrainButton = document.getElementById("retrainButton");
 const lossText = document.getElementById("lossText");
-const confidenceText = document.getElementById("confidence-primary");
-const predictionText = document.getElementById("prediction-primary");
-const confidenceText2 = document.getElementById("confidence-secondary");
-const predictionText2 = document.getElementById("prediction-secondary");
+const predictionTable = document.getElementById("predictionTable");
 resetButton.addEventListener("click", resetBoard);
 testButton.addEventListener("click", testDrawing);
 retrainButton.addEventListener("click", train);
@@ -59,18 +56,33 @@ async function testDrawing() {
   let pred = await predict(drawing);
 
   let highestIndex = 0;
-  let secondIndex = 0;
-  for (let i = 1; i < pred.length; i++) {
+  let secondIndex = 1;
+  for (let i = 0; i < pred.length; i++) {
     if (pred[i] > pred[highestIndex]) {
       secondIndex = highestIndex;
       highestIndex = i;
+    } else if (pred[i] > pred[secondIndex]) {
+      secondIndex = i;
     }
   }
 
-  confidenceText.innerHTML = Math.round(pred[highestIndex] * 10000) / 100;
-  predictionText.innerHTML = highestIndex;
-  confidenceText2.innerHTML = Math.round(pred[secondIndex] * 10000) / 100;
-  predictionText2.innerHTML = secondIndex;
+  let predObj = [];
+  for (let i in pred) {
+    predObj.push({
+      "index": i,
+      "pred": pred[i]
+    });
+  }
+
+  predObj.sort((a, b) => b.pred - a.pred);
+
+  let rows = document.getElementsByClassName("pred");
+  for (const i in predObj) {
+    let html = "<tr>"
+    html += `<td>${Math.round(predObj[i].pred * 10000) / 100}</td>`;
+    html += `<td>${predObj[i].index}</td>`;
+    rows[i].innerHTML = html;
+  }
 }
 
 async function predict(img) {

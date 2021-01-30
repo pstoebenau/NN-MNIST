@@ -1,5 +1,5 @@
 html, body{
-  overflow: hidden;
+  /* overflow: hidden; */
   background-color:#101010;
   color: white;
 }
@@ -22,7 +22,7 @@ h1 {
 table {
   border-collapse: collapse;
   width: 100%;
-  font-size: 2rem;
+  font-size: 1.2rem;
 }
 
 th, td {
@@ -41,7 +41,7 @@ tr:hover {
   transform: translateX(-50%);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 2fr 8fr;
   justify-items: center;
   width: 80%;
 }
