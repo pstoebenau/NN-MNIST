@@ -1,0 +1,100 @@
+html, body{
+  overflow: hidden;
+  background-color:#101010;
+  color: white;
+}
+
+header{
+  text-align: center;
+}
+
+body{
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 150px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 2rem;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background-color:#333;
+}
+
+.grid-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  width: 80%;
+}
+
+.button{
+  margin: 0;
+  border-radius: 10px;
+  border: 2px solid #f44336;
+  background-color: #fff;
+  color: #000;
+  padding: 10px 0;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition-duration: 0.4s;
+}
+
+.button:hover{
+  background-color: #f44336;
+  color: #fff;
+}
+
+canvas {
+  background-color: #404040;
+}
+
+#DrawBoard {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+#DrawBoard ul{
+  padding: 0;
+  display: inline;
+  list-style: none;
+}
+
+#DrawBoard ul .button{
+  width: 49%;
+}
+
+#loss{
+  width: 500px;
+}
+
+#lossText{
+  text-align: center;
+}
+
+#loss .button{
+  width: 100%;
+}
+
+#prediction {
+  width: 500px
+}

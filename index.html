@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>NN Demo</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <h1>Handwritten Number Detection</h1>
+    <div class="grid-container">
+      <div class="container" id="DrawBoard">
+        <ul>
+          <li><canvas id="drawCanvas"></canvas></li>
+          <li>
+            <button type="button" class="button" id="resetButton">Reset</button>
+            <button type="button" class="button" id="testButton">Test</button>
+          </li>
+        </ul>
+      </div>
+      <div class="container" id="loss">
+        <h3 id="lossText">Model loss: null</h3>
+        <button type="button" class="button" id="retrainButton">
+          Train Model
+        </button>
+      </div>
+      <div class="container" id="prediction">
+        <table>
+          <tr>
+            <th>Confidence</th>
+            <th>Prediction</th>
+          </tr>
+          <tr>
+            <td id="confidence-primary"></td>
+            <td id="prediction-primary"></td>
+          </tr>
+          <tr>
+            <td id="confidence-secondary"></td>
+            <td id="prediction-secondary"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.11.6"></script>
+    <script src="./js/DrawBoard.js"></script>
+    <script src="./js/data.js"></script>
+    <script src="./js/model.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
